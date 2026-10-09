@@ -1,0 +1,74 @@
+{
+  "name": "Veltra Track — Personal Operating System",
+  "short_name": "Veltra Track",
+  "description": "Modern local-first personal OS for habits, health vitals, workouts, budget tracking, and deep focus.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B1220",
+  "theme_color": "#3355F0",
+  "categories": [
+    "productivity",
+    "health",
+    "fitness",
+    "lifestyle",
+    "finance"
+  ],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Today Dashboard",
+      "short_name": "Today",
+      "description": "View today's briefings, habits, and life score",
+      "url": "./#today",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Habits & Streaks",
+      "short_name": "Habits",
+      "description": "Track habits and view completion heatmap",
+      "url": "./#habits",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Start Workout",
+      "short_name": "Move",
+      "description": "Track run, walk, or gym workout session",
+      "url": "./#move",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Deep Work Focus",
+      "short_name": "Focus",
+      "description": "Launch Pomodoro or Flow State timer",
+      "url": "./#focus",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
