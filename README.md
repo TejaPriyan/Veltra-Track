@@ -2,137 +2,116 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![PWA Ready](https://img.shields.io/badge/PWA-100%25_Ready-brightgreen.svg)](manifest.json)
-[![Architecture](https://img.shields.io/badge/Architecture-100%25_Local--First-8A2BE2.svg)](#privacy--local-first)
-[![Dependencies](https://img.shields.io/badge/Dependencies-Zero_Build-orange.svg)](#tech-stack)
-[![Deploy with GitHub Pages](https://github.com/TejaPriyan/Veltra-Track/actions/workflows/deploy.yml/badge.svg)](https://github.com/TejaPriyan/Veltra-Track/actions/workflows/deploy.yml)
+[![Live Web App](https://img.shields.io/badge/Live_App-veltratrack.vercel.app-3355F0.svg?style=for-the-badge)](https://veltratrack.vercel.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25_Local--First-8A2BE2.svg?style=for-the-badge)](#-100-private--local-first)
+[![PWA](https://img.shields.io/badge/PWA-Installable-brightgreen.svg?style=for-the-badge)](https://veltratrack.vercel.app/)
 
-**A high-performance, private, zero-dependency personal OS for habits, workouts, budgeting, vitals, and flow-state focus.**
+<br/>
 
-[🌐 Live Web App](https://tejapriyan.github.io/Veltra-Track/) • [📦 Installation](#progressive-web-app-pwa--offline-install) • [✨ Key Features](#key-features) • [🚀 Deployment](#deployment)
+**A private, distraction-free personal operating system for mastering your daily habits, athletic workouts, financial health, recovery vitals, and deep focus.**
+
+### 👉 [Open Veltra Track App](https://veltratrack.vercel.app/)
+
+<br/>
+
+![Veltra Track Dashboard](og-image.png)
 
 </div>
 
 ---
 
-## 🌟 Overview
+## 🌟 Why Veltra Track?
 
-**Veltra Track** is an all-in-one personal dashboard engineered for absolute speed, privacy, and aesthetic clarity. Built completely with vanilla web technologies, it runs directly in any modern browser on desktop and mobile without requiring build scripts, bundlers, external frameworks, or remote databases.
+Most productivity and health apps require multiple subscriptions, force cloud sign-ins, sell your telemetry, and clutter your routine across separate tools.
 
-Your data is stored strictly on your device inside your browser's local storage.
+**Veltra Track** brings everything together into a single, cohesive operating system designed for human focus:
+
+- **Zero Sign-Up Required**: Open the link and immediately start tracking.
+- **100% Private & Local**: Your logs, finances, and journal notes never leave your personal device.
+- **Works Everywhere**: Runs smoothly in any browser on iPhone, Android, Mac, or Windows, and operates completely offline.
 
 ---
 
-## ✨ Key Features
+## 🧭 Your Daily Experience
 
-### 📅 1. Today Dashboard & Veltra Pulse AI
-- **Contextual Daily Briefing**: Intelligent dynamic synthesis of your sleep recovery, pending habits, movement metrics, and remaining daily budget.
-- **2027 Life Score Index (0–100)**: Real-time wellness index balancing habit execution, physical movement, restorative sleep, hydration, and screen time balance.
-- **Quick-Add Actions**: Single-tap logging for habits, water increments, transactions, or workouts.
+### 🌅 1. Today Dashboard & Veltra Pulse AI
+Start every morning with clarity:
+- **Daily Briefing**: Contextual AI-style digest summarizing your sleep recovery, pending habits, movement goals, and remaining daily allowance.
+- **2027 Life Score Index (0–100)**: A composite daily wellness balance calculated across your habits (30 pts), movement (25 pts), sleep recovery (20 pts), hydration (15 pts), and screen time (10 pts).
+- **Day Selector & History**: Easily step backward to reflect on previous days or plan upcoming targets.
 
 ### 🎯 2. Habits & Consistency Heatmap
-- **20-Week Density Heatmap**: GitHub-style activity calendar visualizing multi-month consistency.
-- **Dynamic Recurrence**: Configure daily, weekday, weekend, or custom weekly schedules.
-- **Streak Tracker**: Tracks current streak, best record, and 30-day success percentages with delightful haptic feedback and celebratory micro-interactions.
+Build momentum that lasts:
+- **20-Week Consistency Heatmap**: A visual GitHub-style grid showing your daily execution density over the past 5 months.
+- **Streak Records**: Live celebration of current streaks, all-time best streaks, and 30-day consistency ratios.
+- **Flexible Schedules**: Set habits for every day, workdays only, weekends, or specific custom days.
 
-### ⚡ 3. Move & Live Workout Tracking
-- **Live GPS Pace & Route**: Uses browser `Geolocation` API to calculate live pace, speed, and real-time distance.
-- **Built-in Pedometer**: Connects to mobile accelerometer (`DeviceMotionEvent`) for real-time step counting with automatic route polyline rendering.
-- **Screen WakeLock**: Keeps phone display awake during runs, walks, or cycling sessions.
-- **Strength Training Ledger**: Log sets, reps, and weights with automated Personal Best tracking.
+### 🏃 3. Move & Athletic Workouts
+Track every session effortlessly:
+- **Live Outdoor Tracking**: Tap **Start Run** or **Start Walk** to track pace, distance, and duration in real time with GPS.
+- **Automatic Step Counter**: Uses your phone's built-in motion sensor to count steps and generate route polylines.
+- **Keep-Awake Engine**: Prevents your screen from going dark while you're exercising.
+- **Strength Training Log**: Record sets, reps, and weights with automated Personal Best tracking.
 
 ### 💳 4. Money & Expense Ledger
-- **Category Budgets**: Set total monthly budgets and individual category allowances.
-- **Interactive Daily Burn Chart**: Visual bar charts tracking spending velocity and daily pacing.
-- **Multi-Currency Support**: Automatically formats in INR (`₹`), USD (`$`), EUR (`€`), GBP (`£`), JPY (`¥`), and other global currencies.
-- **Instant Search & Filters**: Search transaction notes and filter by category on the fly.
+Stay in total control of your cash flow:
+- **Monthly Pacing & Budgets**: Set your monthly spending cap and see your exact daily pacing in real time.
+- **Interactive Daily Spend Graph**: Interactive bar charts highlighting spending velocity and high-expense days.
+- **Category Budgets**: Manage limits for Groceries, Dining, Transport, Bills, Shopping, and Health.
+- **Global Currencies**: Formats instantly in INR (`₹`), USD (`$`), EUR (`€`), GBP (`£`), JPY (`¥`), and more.
 
-### 🌿 5. Health & Vitals
-- **Step Target**: Daily step tracker with 14-day history trend lines.
-- **Hydration Tracker**: 1-click water logger with customizable unit systems (Metric `ml` / Imperial `oz`).
-- **Sleep Quality**: Log sleep hours and subjective sleep quality scores.
-- **Screen Time & App Breakdown**: Digital wellbeing monitor tracking total screen time, pickup counts, and per-app usage.
+### 💧 5. Health & Vitals
+Optimize physical and mental recovery:
+- **Hydration Tracker**: 1-tap logging with customizable targets (litres or ounces).
+- **Daily Step Counter**: Track progress against your daily step goal with a 14-day trendline.
+- **Sleep & Rest**: Log hours of sleep and subjective quality ratings to monitor recovery patterns.
+- **Digital Wellbeing**: Monitor total phone screen time, pickup counts, and app-by-app breakdowns.
 
-### 🧘 6. Focus & Flow State Engine
-- **Interval Timers**: Presets for 25m Pomodoro, 50m Deep Work, 90m Flow State, and 5m Reset.
-- **Web Audio Chimes**: Synthesizes pleasant harmonic notification bells directly using the Web Audio API without needing external sound files.
-- **Focus Logging**: 1-click export of completed deep work intervals directly into your daily journal note.
+### ⏱️ 6. Focus & Flow State Engine
+Protect your deep cognitive energy:
+- **Flow State Timers**: Instant presets for 25m Pomodoro, 50m Deep Work, 90m Flow State, and 5m Reset blocks.
+- **Harmonic Chimes**: Calming bell chimes synthesized directly in your browser using procedural audio oscillators.
+- **Session Journal**: Save completed deep work intervals directly into your daily journal notes.
 
-### 🔍 7. Global Command Palette (`⌘K` / `Ctrl+K`)
-- Rapid keyboard-driven navigation across all views, settings, and instant quick-logging actions.
-
-### 🛡️ 8. Data Sovereignty & Portability
-- **JSON Backup**: Complete export and restore of all habits, logs, expenses, and workouts.
-- **CSV Data Exports**: Dedicated spreadsheets for expenses, workouts, and daily vitals.
-- **Sample Data Playground**: 1-click demo data loading to test all charts, with 1-click clean removal anytime.
-
----
-
-## 📱 Progressive Web App (PWA) & Offline Install
-
-Veltra Track is a fully certified Progressive Web App:
-- **Offline First**: A lightweight Service Worker (`sw.js`) caches app shell files, vector icons, and typography.
-- **Install on iOS**: In Safari, tap **Share** (`⎋`) → **Add to Home Screen** (`⊕`).
-- **Install on Android / Chrome / Edge**: Click the **Download App** button in the header or the browser install prompt in the address bar.
-- **Standalone Offline Bundle**: Click **Download App** → **Download Standalone HTML** to save an autonomous single-file version that runs even without an internet connection or web server!
+### ⚡ 7. Command Palette (`Ctrl + K` / `⌘K`)
+Navigate at the speed of thought:
+- Press `Ctrl+K` (or tap **Search**) to instantly search actions, jump between tabs, log water, start a workout, or toggle dark/light theme without touching your mouse.
 
 ---
 
-## 🛠️ Tech Stack
+## 📲 Install as an App (Use Offline Anywhere)
 
-Veltra Track is proudly built with zero external framework dependencies:
-- **Markup**: Semantic HTML5 (Single-file core app shell).
-- **Styling**: Vanilla CSS (Tailored HSL design tokens, Glassmorphism, Adaptive Dark/Light modes).
-- **Logic**: Modern Vanilla JavaScript (ES6+).
-- **APIs**:
-  - `localStorage` (Local persistence)
-  - `ServiceWorker` & `CacheStorage` (PWA Offline caching)
-  - `Web Audio API` (Procedural sound synthesis)
-  - `Geolocation API` (Outdoor speed and distance)
-  - `DeviceMotionEvent` (In-browser pedometer motion engine)
-  - `Screen Wake Lock API` (Display keep-awake during training)
+You can use Veltra Track just like a native app on your phone or computer:
 
----
-
-## 🚀 Deployment
-
-### Deploy to GitHub Pages (Automatic)
-This repository includes a pre-configured GitHub Actions workflow in `.github/workflows/deploy.yml`.
-1. Push to your `main` branch.
-2. Go to **Settings** → **Pages** in your GitHub repository.
-3. Under **Source**, choose **GitHub Actions**.
-4. Your application will be live at:
-   ```
-   https://<your-username>.github.io/Veltra-Track/
-   ```
-
-### Deploy to Vercel
-```bash
-npx vercel
-```
-
-### Deploy to Netlify
-Drag and drop this repository folder onto [Netlify Drop](https://app.netlify.com/drop).
+- **On iPhone / iPad (Safari)**:
+  1. Open [veltratrack.vercel.app](https://veltratrack.vercel.app/).
+  2. Tap the **Share** button (`⎋`).
+  3. Select **Add to Home Screen** (`⊕`).
+- **On Android / Chrome / Edge**:
+  1. Open [veltratrack.vercel.app](https://veltratrack.vercel.app/).
+  2. Tap the **Download App** button in the top bar (or the install prompt in your browser address bar).
+- **Offline HTML Download**:
+  - Click **Download App** → **Download Standalone HTML** to save a permanent, self-contained single-file version directly to your computer.
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+## 🔒 100% Private & Local-First
+
+- **No Remote Databases**: Your habits, financial figures, workout history, and personal notes are stored strictly in your browser's private local storage.
+- **No Trackers**: Zero third-party trackers, cookies, or analytics scripts.
+- **Total Data Sovereignty**: Back up your data anytime in **Settings → Backup (JSON)**, or export clean CSV spreadsheets for Excel and Google Sheets.
+
+---
+
+## ⌨️ Quick Keyboard Shortcuts
 
 | Shortcut | Action |
 | :--- | :--- |
-| `Ctrl + K` / `⌘ + K` | Open Command Palette |
-| `Escape` | Close dialogs, command palette, or modals |
-| `Arrow Up` / `Down` | Navigate command palette items |
-| `Enter` | Execute selected command |
-
----
-
-## 🔒 Privacy & Local-First Philosophy
-
-- **Zero Cloud Tracking**: No Google Analytics, no Facebook Pixels, no third-party trackers.
-- **Client-Side Storage**: Your habits, finances, health data, and daily notes never leave your personal browser.
-- **Your Data is Yours**: Export everything to open JSON and CSV anytime in Settings.
+| `Ctrl + K` or `⌘ + K` | Open Command Palette |
+| `Escape` | Close any sheet, dialog, or search |
+| `Arrow Up` / `Down` | Browse command list |
+| `Enter` | Select and execute command |
 
 ---
 

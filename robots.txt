@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tejapriyan.github.io/Veltra-Track/sitemap.xml
+Sitemap: https://veltratrack.vercel.app/sitemap.xml
