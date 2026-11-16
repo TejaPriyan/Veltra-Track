@@ -154,7 +154,7 @@
   --water:#1F7AE0; --water-soft:#D8EAFE; --on-water:#FFFFFF;
   --sleep:#6A48E8; --sleep-soft:#E4DDFF; --on-sleep:#FFFFFF;
   --screen:#C95A16; --screen-soft:#FADFCC; --on-screen:#FFFFFF;
-  --focus:#3355F0; --danger:#C0322F; --ok:#25946A;
+  --focus:#3355F0; --danger:#C0322F; --ok:#25946A; --ok-soft:#D3F0EA;
   --shadow:0 1px 2px rgba(19,28,46,.05),0 18px 40px -22px rgba(19,28,46,.28);
   --glass:rgba(255,255,255,.72);
   --display:"Bricolage Grotesque","Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -175,7 +175,7 @@
     --water:#6DB4FF; --water-soft:#14304F; --on-water:#04182E;
     --sleep:#A38BFF; --sleep-soft:#2B2257; --on-sleep:#150C3A;
     --screen:#FF9A5C; --screen-soft:#4A2A14; --on-screen:#2A1204;
-    --focus:#8CA0FF; --danger:#FF8A84; --ok:#4FCB9B;
+    --focus:#8CA0FF; --danger:#FF8A84; --ok:#4FCB9B; --ok-soft:#12403A;
     --shadow:0 1px 0 rgba(255,255,255,.03) inset,0 18px 40px -24px rgba(0,0,0,.7);
     --glass:rgba(20,30,49,.72);
   }
@@ -191,7 +191,7 @@
   --water:#6DB4FF; --water-soft:#14304F; --on-water:#04182E;
   --sleep:#A38BFF; --sleep-soft:#2B2257; --on-sleep:#150C3A;
   --screen:#FF9A5C; --screen-soft:#4A2A14; --on-screen:#2A1204;
-  --focus:#8CA0FF; --danger:#FF8A84; --ok:#4FCB9B;
+  --focus:#8CA0FF; --danger:#FF8A84; --ok:#4FCB9B; --ok-soft:#12403A;
   --shadow:0 1px 0 rgba(255,255,255,.03) inset,0 18px 40px -24px rgba(0,0,0,.7);
   --glass:rgba(20,30,49,.72);
 }
@@ -965,17 +965,7 @@ function onRemote(snap) {
   if (core && (core.updatedAt || 0) > S.updatedAt) adopt(docs);
 }
 async function initCloud() {
-  try {
-    if (!window.claude || typeof window.claude.use !== 'function') return;
-    const res = await Promise.all([window.claude.use('db'), window.claude.use('user')]);
-    const db = res[0], user = res[1];
-    if (!db || !user) return;
-    const id = await user.id();
-    if (!id) return;
-    coll = db.collection('data/users/' + id);
-    setStatus('syncing');
-    coll.onSnapshot(onRemote, () => setStatus('error'));
-  } catch (e) { console.warn('Veltra Track: cloud storage unavailable', e); }
+  // Runs strictly local-first in browser storage.
 }
 
 /* ============ mutations ============ */
@@ -2095,9 +2085,28 @@ function downloadAppSheet() {
     </div>`);
 }
 
-function downloadOfflineApp() {
+async function downloadOfflineApp() {
   try {
-    const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+    closeSheet();
+    let html = '';
+    if (location.protocol === 'http:' || location.protocol === 'https:') {
+      try {
+        const resp = await fetch(location.href, { cache: 'no-store' });
+        if (resp.ok) html = await resp.text();
+      } catch (e) {
+        // Fall through to clean DOM clone serialization when offline
+      }
+    }
+    if (!html) {
+      const clone = document.documentElement.cloneNode(true);
+      const sheet = clone.querySelector('#sheet');
+      if (sheet) { sheet.hidden = true; sheet.innerHTML = ''; }
+      const toastEl = clone.querySelector('#toast');
+      if (toastEl) { toastEl.hidden = true; toastEl.innerHTML = ''; }
+      const appEl = clone.querySelector('#app');
+      if (appEl) appEl.innerHTML = '';
+      html = '<!doctype html>\n' + clone.outerHTML;
+    }
     const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -2107,7 +2116,6 @@ function downloadOfflineApp() {
     a.click();
     document.body.removeChild(a);
     setTimeout(() => URL.revokeObjectURL(url), 1000);
-    closeSheet();
     toast('Downloaded standalone offline HTML app!');
   } catch (e) {
     toast('Could not download standalone file.');
@@ -2565,13 +2573,6 @@ function removeSample() {
 
 /* ============ export / import ============ */
 async function exportFile(filename, text) {
-  try {
-    const dl = window.claude && window.claude.use ? await window.claude.use('downloads') : null;
-    if (dl) { await dl.save({ filename, data: text }); toast('Export ready.'); return; }
-  } catch (e) {
-    if (e && e.code === 'declined') return;
-    console.warn(e);
-  }
   try {
     const mime = filename.endsWith('.json') ? 'application/json' : 'text/csv;charset=utf-8;';
     const blob = new Blob([text], { type: mime });

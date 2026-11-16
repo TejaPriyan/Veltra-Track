@@ -7,6 +7,7 @@ const ASSETS_TO_CACHE = [
   './favicon.png',
   './icon-192.png',
   './icon-512.png',
+  './icon-maskable-512.png',
   './apple-touch-icon.png'
 ];
 
@@ -55,11 +56,12 @@ self.addEventListener('fetch', event => {
           caches.open(CACHE_NAME).then(cache => cache.put(req, clone));
         }
         return networkResponse;
-      }).catch(() => {
-        // Network failed (offline)
+      }).catch(async () => {
+        // Network failed (offline): always resolve to a valid Response
         if (req.mode === 'navigate') {
-          return caches.match('./index.html');
+          return (await caches.match('./index.html')) || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
         }
+        return (await caches.match(req)) || Response.error();
       });
 
       return cachedResponse || fetchPromise;

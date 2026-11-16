@@ -24,13 +24,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify syntax and smoke tests
+        run: |
+          node --check sw.js
+          node --test tests/smoke.test.mjs
+
+      - name: Prepare static site output
+        run: |
+          mkdir -p _site
+          cp index.html sw.js manifest.json og-image.png robots.txt sitemap.xml favicon.png favicon.svg icon-192.png icon-512.png icon-maskable-512.png apple-touch-icon.png google2af4e1ed3191321d.html _site/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
